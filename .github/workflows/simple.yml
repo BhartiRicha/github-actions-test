@@ -12,7 +12,9 @@ jobs:
         run: |
           node -v
           npm -v
-          cat /home/runner/work/_temp/*.sh
+          mkdir new
+          pwd
+          ls
       - name: singleline script
         run: >
           echo "This is 
@@ -30,5 +32,5 @@ jobs:
       - name: Directory Bash
         run: |
           pwd
-          cat D:/a/_temp/*.ps1
+          ls
         shell: bash
