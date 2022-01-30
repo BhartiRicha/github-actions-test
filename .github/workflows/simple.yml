@@ -12,6 +12,7 @@ jobs:
         run: |
           node -v
           npm -v
+          sleep 10
       - name: singleline script
         run: >
           echo "This is 
