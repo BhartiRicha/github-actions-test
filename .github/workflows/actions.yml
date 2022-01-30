@@ -13,3 +13,7 @@ jobs:
           who-to-greet: 'Ross'
       - name: Log Greeting Time
         run: echo "${{ steps.greet.outputs.time }}"
+      - name: List Files
+        run: |
+          pwd
+          ls
