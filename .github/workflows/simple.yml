@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo a string
-        run: eco "Hello World"
+        run: echo "Hello World"
       - name: multiline script
         run: |
           node -v
@@ -17,3 +17,8 @@ jobs:
         run: >
           echo "This is 
           single line"
+      - name: python command
+        run: |
+          import platform
+          print(platform.processor())
+        shell: python
