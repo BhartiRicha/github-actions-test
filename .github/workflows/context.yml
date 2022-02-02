@@ -1,8 +1,9 @@
 name: Context testing
-on: push
+on: [push, pull_request]
 
 jobs:
   dump_contexts_to_log:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -21,7 +22,10 @@ jobs:
   context:
     runs-on: ubuntu-latest
     steps:
+      - name: failed job
+        run: ech "Hi"
       - name: context test
+        if: failure()
         run: |
           echo "github.pusher: ${{ github.event.pusher }}"
           echo "toJSON github.pusher: ${{ toJSON(github.event.pusher) }}"
