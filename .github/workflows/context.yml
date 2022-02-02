@@ -18,3 +18,11 @@ jobs:
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
+  context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: context test
+        run: |
+          echo "github.pusher: ${{ github.pusher }}"
+          echo "runner.os: ${{ runner.os }}
+    
