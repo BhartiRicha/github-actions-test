@@ -1,11 +1,19 @@
 name: Actions Workflow
 
 on: 
-  push:
+  push: 
   pull_request:
     types: [closed, assigned, opened, reopened]
+  repository_dispatch: 
+    types: [build, release]
 
 jobs:
+  check-repo-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check-payload
+        run: echo ${{ github.event.client_payload.env }}
+        
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +34,7 @@ jobs:
           echo "${{ github.token }}"
       - name: Checkout
         uses: actions/checkout@v1
-      - name: List Files
+      - name: List Files after Checkout
         run: |
           pwd
           ls -a
