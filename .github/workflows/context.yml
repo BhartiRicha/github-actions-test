@@ -23,6 +23,6 @@ jobs:
     steps:
       - name: context test
         run: |
-          echo "github.pusher: ${{ github.pusher }}"
+          echo "github.pusher: ${{ github.event.pusher }}"
           echo "runner.os: ${{ runner.os }}
     
