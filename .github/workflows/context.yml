@@ -24,5 +24,5 @@ jobs:
       - name: context test
         run: |
           echo "github.pusher: ${{ github.event.pusher }}"
-          echo "runner.os: ${{ runner.os }}
+          echo "runner.os: ${{ runner.os }}"
     
